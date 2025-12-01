@@ -1,1 +1,1 @@
-# Welcome to my personal website http://mohammad-akhtar-awan.github.io/
+# Welcome to my personal website http://Mohammad-Akhtar-Awan.github.io/
