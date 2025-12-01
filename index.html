@@ -1,1 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dr. Muhammad Akhtar — CV & Portfolio</title>
+  <meta name="description" content="Muhammad Akhtar — MS AI. Researcher in Computer Vision, Transfer Learning, Remote Sensing. Publications, projects, certifications, contact." />
 
+  <!-- Fonts & icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-HK5fgLBL+x7..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#4f7cff; --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#e6eef8;background:linear-gradient(180deg,#081025 0%,#071223 100%);}
+
+    /* Layout */
+    .wrap{max-width:1100px;margin:28px auto;padding:24px}
+    header.top{display:flex;align-items:center;gap:20px;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:16px}
+    .avatar{width:84px;height:84px;border-radius:14px;background:linear-gradient(135deg,#2a6cff,#9b59ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:28px;box-shadow:0 6px 20px rgba(47,84,255,0.15)}
+    h1{name:none;margin:0;font-size:20px}
+    p.lead{margin:4px 0 0;color:var(--muted)}
+
+    nav.topnav{display:flex;gap:12px}
+    nav.topnav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
+    nav.topnav a.primary{background:linear-gradient(90deg,var(--accent),#7b61ff);color:white}
+    nav.topnav a:hover{transform:translateY(-2px)}
+
+    main.grid{display:grid;grid-template-columns: 1fr 360px;gap:24px;margin-top:20px}
+
+    /* Left column */
+    .card{background:var(--card);border-radius:12px;padding:18px;color:#eaf3ff;box-shadow:0 6px 30px rgba(2,6,23,0.6);}
+    .section{margin-bottom:16px}
+    .section h2{margin:0 0 8px;font-size:18px;color:var(--accent)}
+    .meta{color:var(--muted);font-size:14px}
+
+    /* Skills */
+    .skills{display:flex;flex-direction:column;gap:10px}
+    .skill{display:flex;align-items:center;justify-content:space-between}
+    .skill .bar{height:10px;border-radius:8px;background:var(--glass-2);width:70%;margin-left:12px;overflow:hidden}
+    .skill .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#7b61ff);width:0%;border-radius:8px}
+
+    /* Projects */
+    .projects{display:grid;grid-template-columns:1fr;gap:12px}
+    .project{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:10px}
+    .project h4{margin:0 0 6px}
+    .project p{margin:0;color:var(--muted);font-size:14px}
+    .badges{margin-top:8px}
+    .badge{display:inline-block;background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:999px;font-size:12px;margin-right:8px;color:var(--muted)}
+
+    /* Right column */
+    .profile-card{position:sticky;top:24px}
+    .contact{display:flex;flex-direction:column;gap:8px}
+    .socials a{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;background:var(--glass);text-decoration:none;color:white;margin-right:8px}
+
+    /* Publications list */
+    .pubs li{margin-bottom:12px}
+    .pubs a{color:var(--accent);text-decoration:none}
+
+    /* Timeline */
+    .timeline{border-left:2px solid rgba(255,255,255,0.03);padding-left:12px}
+    .timeline-item{margin-bottom:14px}
+
+    /* Footer */
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:980px){main.grid{grid-template-columns:1fr} .profile-card{position:relative;top:0}}
+
+    /* Micro animations */
+    .fade-in{opacity:0;transform:translateY(8px);animation:enter .7s ease forwards}
+    @keyframes enter{to{opacity:1;transform:none}}
+
+    /* CTA */
+    .cta{display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7b61ff);color:white;text-decoration:none;font-weight:700}
+
+    /* Dark-mode-friendly focus */
+    a:focus{outline:2px solid rgba(79,124,255,0.18);outline-offset:3px}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top fade-in">
+      <div class="brand">
+        <div class="avatar">MA</div>
+        <div>
+          <h1>Muhammad Akhtar</h1>
+          <p class="lead">MS (AI) — Researcher: Computer Vision • Transfer Learning • Remote Sensing</p>
+        </div>
+      </div>
+
+      <nav class="topnav">
+        <a href="#contact">Contact</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a class="primary" href="#education">Resume</a>
+      </nav>
+    </header>
+
+    <main class="grid">
+      <!-- LEFT -->
+      <div>
+        <section class="card section fade-in" id="home">
+          <h2>About</h2>
+          <p class="meta">Research Assistant at Cognition, Learning and Interaction Lab — Northwestern Polytechnical University, Xi'an (Aug 2024 – Present). MS Artificial Intelligence (Gold Medalist) — Air University (2023).</p>
+
+          <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="cta" href="/Muhammad_Akhtar_CV.pdf" download><i class="fa-regular fa-file-arrow-down"></i> Download CV</a>
+            <a class="cta" href="mailto:engr.akhtar.awan@gmail.com" style="background:transparent;border:1px solid rgba(255,255,255,0.06)"><i class="fa-solid fa-envelope"></i> Email</a>
+          </div>
+        </section>
+
+        <section class="card section fade-in" id="education">
+          <h2>Education</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <strong>MS — Artificial Intelligence</strong>
+              <div class="meta">Air University, Islamabad — <em>Gold Medalist</em> (CGPA: 3.64/4.00) — 2023</div>
+            </div>
+            <div class="timeline-item">
+              <strong>BSc — Telecommunication Engineering</strong>
+              <div class="meta">UET Taxila — 2015</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card section fade-in" id="experience">
+          <h2>Experience</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <strong>Research Assistant</strong>
+              <div class="meta">Cognition, Learning and Interaction Lab — Northwestern Polytechnical University, Xi'an (Aug 2024 – Present)</div>
+              <p style="margin-top:6px;color:var(--muted)">Working on transfer learning, remote sensing, and explainable CV models.</p>
+            </div>
+
+            <div class="timeline-item">
+              <strong>Lecturer — Computer Science</strong>
+              <div class="meta">University of Chakwal — Feb 2024 – Aug 2024</div>
+              <p style="margin-top:6px;color:var(--muted)">Taught AI, Machine Learning, and Database Systems.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card section fade-in" id="projects">
+          <h2>Selected Projects</h2>
+          <div class="projects">
+            <article class="project">
+              <h4>Transfer Learning Framework for Natural Scene Classification</h4>
+              <p>Fine-tuned ResNet-50 to classify remote sensing images into 10 classes. Techniques: transfer learning, augmentation, focal loss.</p>
+              <div class="badges"><a class="badge" href="https://github.com/Mohammad-Akhtar-Awan/natural-scene-classification" target="_blank">GitHub</a><span class="badge">Python</span><span class="badge">PyTorch</span></div>
+            </article>
+
+            <article class="project">
+              <h4>Human Pose Estimation (MPII)</h4>
+              <p>Keypoint detection and grouping using OpenCV + deep models.</p>
+              <div class="badges"><a class="badge" href="https://github.com/Mohammad-Akhtar-Awan/human-pose-estimation" target="_blank">GitHub</a><span class="badge">OpenCV</span></div>
+            </article>
+
+            <article class="project">
+              <h4>Aircraft Detection using YOLOv5</h4>
+              <p>Object detection on remote sensing datasets (Airbus dataset).</p>
+              <div class="badges"><a class="badge" href="https://github.com/Mohammad-Akhtar-Awan/aircraft-detection" target="_blank">GitHub</a><span class="badge">YOLOv5</span></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="card section fade-in" id="publications">
+          <h2>Publications</h2>
+          <ul class="pubs">
+            <li>
+              <strong>Akhtar, M.; Murtza, I.; Adnan, M.; Saadia, A.</strong>
+              <div class="meta">"Cross-Domain Transfer Learning for Natural Scene Classification of Remote-Sensing Imagery", Applied Sciences, 2023, 13, 7882.</div>
+              <div style="margin-top:6px"><a href="https://doi.org/10.3390/app13137882" target="_blank" rel="noopener">Read paper (DOI)</a></div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="card section fade-in" id="certifications">
+          <h2>Certifications</h2>
+          <ul>
+            <li><strong>Deep Learning with PyTorch: Image Segmentation</strong> — Coursera. <a href="https://coursera.org/certificate/image-segmentation" target="_blank">Certificate</a></li>
+            <li><strong>Classification of COVID-19 using Chest X-ray Images in Keras</strong> — Coursera. <a href="https://coursera.org/certificate/covid19-chest-xray" target="_blank">Certificate</a></li>
+            <li><strong>IELTS Academic (2023)</strong> — Overall Band: 7.0 (Valid until October 2025)</li>
+          </ul>
+        </section>
+
+        <section class="card section fade-in" id="skills">
+          <h2>Technical Skills</h2>
+          <div class="skills">
+            <div class="skill"><div>C++, Python, PyTorch</div><div class="bar" data-value="88"><i></i></div></div>
+            <div class="skill"><div>Computer Vision & Deep Learning</div><div class="bar" data-value="90"><i></i></div></div>
+            <div class="skill"><div>Remote Sensing & Object Detection</div><div class="bar" data-value="80"><i></i></div></div>
+            <div class="skill"><div>Data Analysis (NumPy/Pandas)</div><div class="bar" data-value="82"><i></i></div></div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT / SIDEBAR -->
+      <aside class="profile-card">
+        <div class="card fade-in">
+          <h2>Contact</h2>
+          <div class="contact">
+            <div class="meta">Email: <a href="mailto:engr.akhtar.awan@gmail.com">engr.akhtar.awan@gmail.com</a></div>
+            <div class="meta">Phone: <a href="tel:+923088981008">+92-308-8981008</a></div>
+            <div class="meta">Location: Islamabad, Pakistan</div>
+
+            <div style="margin-top:12px" class="socials">
+              <a href="https://www.linkedin.com/in/engr-akhtar-malik/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+              <a href="https://www.researchgate.net/profile/Muhammad-Akhtar-97" target="_blank"><i class="fa-brands fa-researchgate"></i> ResearchGate</a>
+            </div>
+
+            <div style="margin-top:12px">
+              <a class="cta" href="https://github.com/Mohammad-Akhtar-Awan" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card fade-in" style="margin-top:14px">
+          <h2>Awards & Achievements</h2>
+          <ul class="meta">
+            <li>Gold Medal — MS Artificial Intelligence, Air University (2023)</li>
+            <li>Prime Minister’s Youth Laptop Scheme (2023)</li>
+          </ul>
+        </div>
+
+        <div class="card fade-in" style="margin-top:14px">
+          <h2>Teaching & Service</h2>
+          <p class="meta">Lecturer, University of Chakwal — taught AI, ML, Databases (Feb 2024 – Aug 2024)</p>
+        </div>
+      </aside>
+
+    </main>
+
+    <footer>
+      <small>© 2025 Muhammad Akhtar — Built with ❤️ • <a href="#contact">Contact</a> • Designed for GitHub Pages</small>
+    </footer>
+  </div>
+
+  <script>
+    // animate skill bars
+    document.addEventListener('DOMContentLoaded',()=>{
+      document.querySelectorAll('.skill .bar').forEach(bar=>{
+        const v = bar.getAttribute('data-value') || 70;
+        const inner = bar.querySelector('i');
+        setTimeout(()=>{ inner.style.width = v + '%'; }, 250);
+      });
+
+      // smooth scroll for anchors
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click',e=>{
+          const href = a.getAttribute('href');
+          if(href.length>1){
+            e.preventDefault();
+            document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});
+          }
+        });
+      });
+
+    });
+  </script>
+</body>
+</html>
