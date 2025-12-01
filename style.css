@@ -6,6 +6,7 @@ body {
     background: #f7f9fc;
     color: #222;
     line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
 .section {
@@ -14,6 +15,12 @@ body {
     margin: 40px auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .section h2 {
@@ -24,11 +31,6 @@ body {
     padding-left: 10px;
 }
 
-.section ul li {
-    margin-bottom: 10px;
-}
-
-/* Navbar */
 .navbar {
     position: fixed;
     top: 0;
@@ -42,6 +44,11 @@ body {
     padding: 15px 10%;
     z-index: 1000;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background 0.3s;
+}
+
+.navbar.scrolled {
+    background: #162a4d;
 }
 
 .logo {
@@ -66,29 +73,37 @@ body {
     border-radius: 4px;
 }
 
-.nav-links li a:hover {
+.nav-links li a:hover,
+.nav-links li a.active {
     background: #324f99;
 }
 
-/* Home Section */
 #home {
     text-align: center;
-    padding-top: 120px;
+    padding-top: 140px;
+    padding-bottom: 60px;
 }
 
 #home h1 {
     font-size: 40px;
     color: #1b3a7a;
+    margin-bottom: 10px;
+}
+
+#home p {
+    font-size: 18px;
+    margin: 5px 0;
 }
 
 #home a {
     color: #1b3a7a;
     font-weight: bold;
+    text-decoration: none;
 }
 
-/* Smooth Scroll */
-html {
-    scroll-behavior: smooth;
+/* Active Section Highlighting */
+.nav-links li a.active {
+    border-bottom: 2px solid #00c3ff;
 }
 
 /* Responsive */
@@ -111,3 +126,33 @@ html {
         font-size: 32px;
     }
 }
+
+/* JavaScript functionality for active menu highlighting and navbar scroll effect */
+<script>
+window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.nav-links li a');
+    const navbar = document.querySelector('.navbar');
+
+    if(window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+
+    sections.forEach(section => {
+        const top = section.offsetTop - 150;
+        const bottom = top + section.offsetHeight;
+        const id = section.getAttribute('id');
+
+        if(window.scrollY >= top && window.scrollY <= bottom) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === '#' + id) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+});
+</script>
